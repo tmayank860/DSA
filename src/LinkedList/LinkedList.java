@@ -11,27 +11,35 @@ public class LinkedList {
     private int size;
 
     public static void main(String[] args) throws Exception {
+//        LinkedList ls = new LinkedList();
+//        ls.insertAtLast(12);
+//        ls.insertAtLast(21);
+//        ls.insertAtLast(43);
+//        ls.insertAtLast(54);
+////        ls.display();
+////        System.out.println(ls.head.data + " " + ls.tail.data);
+//        ls.insertAtBeginning(12);
+//        ls.insertAtBeginning(15);
+//        ls.insertAtBeginning(17);
+//        ls.insertAtBeginning(19);
+////        ls.display();
+//        ls.insertInBetween(1, 21);
+////        ls.display();
+//        ls.insertAfter(ls.head.next.next, 11);
+////        ls.display();
+////        System.out.println(ls.getMiddle(ls.head));
+//        ls.display();
+//        System.out.println(ls.deleteLast().data);
+//        ls.display();
         LinkedList ls = new LinkedList();
-        ls.insertAtLast(12);
-        ls.insertAtLast(21);
-        ls.insertAtLast(43);
-        ls.insertAtLast(54);
-//        ls.display();
-//        System.out.println(ls.head.data + " " + ls.tail.data);
-        ls.insertAtBeginning(12);
-        ls.insertAtBeginning(15);
-        ls.insertAtBeginning(17);
-        ls.insertAtBeginning(19);
-//        ls.display();
-        ls.insertInBetween(1, 21);
-//        ls.display();
-        ls.insertAfter(ls.head.next.next, 11);
-//        ls.display();
-//        System.out.println(ls.getMiddle(ls.head));
+        ls.insertAtLast(2);
+        ls.insertAtLast(2);
+        ls.insertAtLast(2);
+        ls.insertAtLast(2);
+        ls.insertAtLast(2);
         ls.display();
-        System.out.println(ls.deleteLast().data);
+        removeDuplicates(ls.head);
         ls.display();
-
 
 //        System.out.println(ls.head.data + " " + ls.tail.data);
     }
@@ -51,7 +59,27 @@ public class LinkedList {
     }
 
 //    Insert at end of the linked list
+static Node removeDuplicates(Node head)
+{
+    // Your code here
+    if(head==null||head.next==null){
+        return head;
+    }
+    Node prev=head;
+    Node current=head.next;
+    while(current!=null){
+        while(current!=null&&current.data==prev.data){
+            current=current.next;
+        }
+        prev.next=current;
 
+       if (current!=null){
+           prev=current;
+           current=current.next;
+       }
+    }
+    return head;
+}
     public void insertAtLast(int item) {
         Node new_node = new Node();
         new_node.data = item;

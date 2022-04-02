@@ -2,8 +2,8 @@ package GFGAmazon.Arrays;
 
 public class TrappingRainWater {
     public static void main(String[] args) {
-        int arr[] = {7,4,0,9};
-        System.out.println(trappingWater(arr,4));
+        int arr[] = {3, 0, 2, 0, 4};
+        System.out.println(trappingWater(5,arr));
     }
 
 //    Naive approach O(N2)
